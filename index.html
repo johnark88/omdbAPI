@@ -4,12 +4,15 @@
     <meta charset="utf-8">
     <script src="vendors/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="scripts/omdbapi.js"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" media="screen" title="no tite">
+    <link rel="stylesheet" href="stylesheet.css" media="screen">
     <title></title>
   </head>
   <body>
-    <h1>OMDB API </h1>
-    <input type="text" id="movieNameIn" value= "" placeholder="search?">
-    <button id="searchButton">Search</button>
+    <h1>Find something to Watch</h1>
+    <input type="text" id="movieNameIn" value= "" placeholder="Search">
+    <button class="btn btn-outline-success" id="searchButton">Search</button>
+    <button class="btn btn-secondary" id="clearSearch">Clear Results</button>
 
     <div id="outputDiv">
       Incoming....

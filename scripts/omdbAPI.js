@@ -4,19 +4,30 @@ console.log('omdb scourced');
 
 $(document).ready(function (){
   console.log( 'doc ready' );
+  //focus on search field
+$('#movieNameIn').focus();
 
 $('#searchButton').on('click', function (){
   console.log('searchButton on click');
-
+  //clear search results from DOM
+  $('#clearSearch').on('click', function (){
+    console.log('clear search click');
+    $('#outputDiv').empty();
+  });
   $('#movieNameIn').html(function(){
     console.log('input field check');
     if( $(this).val().length === 0 ) {
-        alert('Fill in the search box fool');
-    }
+        alert('Fill in the search box!!');
+        $('#movieNameIn').fadeOut('fast');
+        $('#movieNameIn').fadeIn('fast');
+    }//end search input validation
 
   //get user input
   var movieName = $('#movieNameIn').val();
-  var searchURL = 'http://www.omdbapi.com/?s=' + movieName;
+  var tomatoes = '&tomatoes=true&r=json';
+  var plot = '&plot=short';
+  var searchURL = 'http://www.omdbapi.com/?t=' + movieName + tomatoes;
+
   console.log('searchURL: ', searchURL);
 
   //ajax call
@@ -28,7 +39,7 @@ $('#searchButton').on('click', function (){
       showResults(data.Search);
     }//end success
   });//end ajax
-});//end blank input check 
+});//end blank input check
 });//end searchButton
 });//end document ready
 
