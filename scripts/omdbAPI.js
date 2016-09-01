@@ -24,10 +24,9 @@ $('#searchButton').on('click', function (){
 
   //get user input
   var movieName = $('#movieNameIn').val();
-  var tomatoes = '&tomatoes=true&r=json';
+  var tomatoes = '&tomatoes=true';
   var plot = '&plot=short';
-  var searchURL = 'http://www.omdbapi.com/?t=' + movieName + tomatoes;
-
+  var searchURL = 'http://www.omdbapi.com/?s=' + movieName;
   console.log('searchURL: ', searchURL);
 
   //ajax call
@@ -50,8 +49,9 @@ var showResults = function (results){
   $('#outputDiv').empty();
   for (var i = 0; i < results.length; i++) {
     //Add Title and Year paragraph to the DOM
-    $('#outputDiv').append('<p>' + results[i].Title + ' ' + results[i].Year + '<p>');
+    $('#outputDiv').append('<p>' + results[i].Title + ' ' + results[i].Year + ' ' + results[i].Genre + '<p>');
     //Add Poster Poster
+    $('outputDiv').append('<p>' + results[i].tomatoRating +'<p>');
     $('#outputDiv').append('<img src="' + results[i].Poster + '">');
   }//end For
 };//end showResults
